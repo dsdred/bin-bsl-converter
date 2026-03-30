@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+*.vsix
+.vscode-test/
+
+# Test files
+test-*.js
+test/BinBsl/Form/
+test/BinBsl/Form_*.bin
+test/BinBsl/Form_*.bsl
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+!.vscode/launch.json
+
+# Temporary files
+*.tmp
+*.temp
