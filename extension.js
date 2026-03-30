@@ -20,22 +20,6 @@ function activate(context) {
             }
         }),
 
-        vscode.commands.registerCommand('bin-bsl.buildToBin', async (uri) => {
-            if (uri) {
-                await buildBinFile(uri.fsPath);
-            } else {
-                const uris = await vscode.window.showOpenDialog({
-                    canSelectMany: true,
-                    filters: { 'BSL файлы': ['bsl'] }
-                });
-                if (uris) {
-                    for (const u of uris) {
-                        await buildBinFile(u.fsPath);
-                    }
-                }
-            }
-        }),
-
         vscode.commands.registerCommand('bin-bsl.extractFromFolder', async (uri) => {
             const folderUri = uri || await vscode.window.showOpenDialog({
                 canSelectFolders: true,
@@ -64,27 +48,6 @@ async function extractBinFile(binPath) {
         await fs.writeFile(bslPath, moduleText || '', 'utf8');
         
         vscode.window.showInformationMessage(`Извлечено: ${bslPath}`);
-    } catch (err) {
-        vscode.window.showErrorMessage(`Ошибка: ${err.message}`);
-    }
-}
-
-async function buildBinFile(bslPath) {
-    try {
-        const bslContent = await fs.readFile(bslPath, 'utf8');
-        
-        const fileName = path.basename(bslPath, '.bsl');
-        const dirName = path.dirname(bslPath);
-        const binPath = path.join(path.dirname(dirName), `${fileName}.bin`);
-        
-        const templatePath = path.join(__dirname, 'test', 'BinBsl', 'Form.bin');
-        let binBuffer = await fs.readFile(templatePath);
-        
-        binBuffer = await insertModuleIntoBin(binBuffer, bslContent);
-        
-        await fs.writeFile(binPath, binBuffer);
-        
-        vscode.window.showInformationMessage(`Собрано: ${binPath}`);
     } catch (err) {
         vscode.window.showErrorMessage(`Ошибка: ${err.message}`);
     }
@@ -159,35 +122,6 @@ async function extractModuleFromBin(binPath) {
     result = result.replace(/\0/g, '');
     
     return result;
-}
-
-async function insertModuleIntoBin(binBuffer, moduleText) {
-    const buffer = Buffer.from(binBuffer);
-    
-    const addressBlock3 = 624;
-    const addressBlock4 = 691;
-    const offsetEndAddress = 722;
-    const hexSize = 8;
-    const specialHex = '7fffffff';
-    
-    const lastBlock3 = readHexFromBuffer(buffer, addressBlock3 + hexSize * 2 + 2, hexSize);
-    
-    let startAddress;
-    
-    if (lastBlock3 === specialHex) {
-        startAddress = addressBlock4 + hexSize * 3 + 2;
-    } else {
-        const hexValue = readHexFromBuffer(buffer, addressBlock3 + hexSize + 1, hexSize);
-        startAddress = hexToDecimal(hexValue) + offsetEndAddress + hexSize * 3 + 2;
-    }
-    
-    const moduleBuffer = Buffer.from('\uFEFF' + moduleText, 'utf8');
-    const newSize = moduleBuffer.length;
-    
-    const before = buffer.slice(0, startAddress);
-    const padding = Buffer.alloc(Math.max(0, buffer.length - startAddress - newSize));
-    
-    return Buffer.concat([before, moduleBuffer, padding]);
 }
 
 function readHexFromBuffer(buffer, offset, length) {
