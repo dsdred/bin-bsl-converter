@@ -1,4 +1,4 @@
-# BIN-BSL Extractor
+# BIN-BSL Converter
 
 ![Version](https://img.shields.io/badge/version-1.0.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
