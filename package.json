@@ -3,11 +3,23 @@
   "displayName": "BIN-BSL Converter",
   "description": "Конвертер файлов Form.bin ↔ Module.bsl для конфигураций 1С на обычных формах. Извлекает текст модулей для доработки и конвертирует обратно в bin",
   "version": "1.0.0",
+  "publisher": "dsdred",
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "1c",
+    "bsl",
+    "bin",
+    "converter",
+    "1С",
+    "обычные формы",
+    "form",
+    "module"
   ],
   "repository": {
     "type": "git",
