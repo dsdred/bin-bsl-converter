@@ -11,6 +11,15 @@ test-*.js
 test/BinBsl/Form/
 test/BinBsl/Form_*.bin
 test/BinBsl/Form_*.bsl
+test/BinBsl2/
+
+# Documentation (dev only)
+BUGFIX.md
+RELEASE_v*.md
+FINAL_v*.md
+SUMMARY.md
+PUBLISH_NOW.md
+GITIGNORE_INFO.md
 
 # Logs
 *.log

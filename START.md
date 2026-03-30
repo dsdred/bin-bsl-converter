@@ -1,15 +1,16 @@
 # 🚀 ГОТОВО К ПУБЛИКАЦИИ!
 
-Все ссылки обновлены на ваш GitHub: **dsdred**
+Версия: **BIN-BSL Extractor v1.0.2**
 
 ---
 
 ## 📦 Что готово:
 
-✅ Плагин упакован: `bin-bsl-converter-1.0.0.vsix` (1.06 MB)  
+✅ Плагин упакован: `bin-bsl-converter-1.0.2.vsix` (1.08 MB)  
 ✅ Все ссылки обновлены на `dsdred`  
-✅ Документация готова  
+✅ Документация обновлена  
 ✅ Лицензия MIT  
+✅ Удалена нестабильная функция сборки
 
 ---
 
@@ -21,7 +22,7 @@
 
 Заполните:
 - **Repository name**: `bin-bsl-converter`
-- **Description**: `Плагин VS Code для конвертации файлов Form.bin ↔ Module.bsl из конфигураций 1С`
+- **Description**: `Плагин VS Code для извлечения модулей из файлов Form.bin конфигураций 1С на обычных формах`
 - Выберите **Public**
 - **НЕ** добавляйте README, .gitignore, LICENSE
 
@@ -35,7 +36,7 @@
 cd e:\PRJ\BonsAI
 git init
 git add .
-git commit -m "Initial commit: BIN-BSL Converter v1.0.0"
+git commit -m "Initial commit: BIN-BSL Extractor v1.0.2"
 git branch -M main
 git remote add origin https://github.com/dsdred/bin-bsl-converter.git
 git push -u origin main
@@ -46,25 +47,29 @@ git push -u origin main
 1. Откройте: https://github.com/dsdred/bin-bsl-converter
 2. Нажмите **Releases** → **Create a new release**
 3. Заполните:
-   - **Tag**: `v1.0.0`
-   - **Title**: `v1.0.0 - Первый релиз`
+   - **Tag**: `v1.0.2`
+   - **Title**: `v1.0.2 - BIN-BSL Extractor`
    - **Description**:
      ```
-     ## 🎉 Первый релиз BIN-BSL Converter
+     ## 🎉 BIN-BSL Extractor v1.0.2
      
      ### Возможности
-     - ✅ Извлечение модуля из .bin в .bsl
-     - ✅ Сборка .bin из .bsl
+     - ✅ Извлечение модулей из .bin в .bsl
      - ✅ Пакетная обработка папок
      - ✅ Поддержка множественного выбора файлов
      
+     ### Изменения в v1.0.2
+     - ❌ Удалена нестабильная функция сборки BSL → BIN
+     - 🎯 Фокус на извлечении и анализе кода
+     - 📝 Обновлена документация
+     
      ### Установка
-     1. Скачайте файл `bin-bsl-converter-1.0.0.vsix` ниже
+     1. Скачайте файл `bin-bsl-converter-1.0.2.vsix` ниже
      2. В VS Code: Extensions → ... → Install from VSIX
      3. Выберите скачанный файл
      4. Готово! 🚀
      ```
-4. Перетащите файл `bin-bsl-converter-1.0.0.vsix` в **Attach binaries**
+4. Перетащите файл `bin-bsl-converter-1.0.2.vsix` в **Attach binaries**
 5. Нажмите **Publish release**
 
 ---

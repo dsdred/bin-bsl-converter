@@ -1,9 +1,17 @@
 .vscode/**
 .vscode-test/**
 test/**
+test-*.js
 .gitignore
 .yarnrc
 vsc-extension-quickstart.md
 **/jsconfig.json
 **/*.map
 **/.eslintrc.json
+BUGFIX.md
+RELEASE_v*.md
+FINAL_v*.md
+SUMMARY.md
+PUBLISH_NOW.md
+GITIGNORE_INFO.md
+bin-bsl-converter-*.vsix
